@@ -38,6 +38,9 @@ namespace WebForms.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        WebForms.Logic.ShoppingCartActions usersShoppingCartActions = new WebForms.Logic.ShoppingCartActions();
+                        String cartId = usersShoppingCartActions.GetCartId();
+                        usersShoppingCartActions.MigrateCart(cartId, Email.Text);
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:

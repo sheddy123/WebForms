@@ -178,6 +178,18 @@ namespace WebForms.Logic
                           select (int?)cartItems.Quantity).Sum();
             return count ?? 0;
         }
+
+        public void MigrateCart(string cartId, string userName)
+        {
+            var shoppingCart = db.ShoppingCartItems.Where(c => c.CartId == cartId);
+            foreach(CartItem item in shoppingCart)
+            {
+                item.CartId = userName;
+            }
+            HttpContext.Current.Session[CartSessionKey] = userName;
+            db.SaveChanges();
+        }
+
         public struct ShoppingCartUpdates
         {
             public int ProductId;
