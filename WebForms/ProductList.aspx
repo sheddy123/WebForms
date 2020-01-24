@@ -28,8 +28,9 @@
                         <tr>
                             <td>
                                 <a href="ProductDetails.aspx?productID=<%#Item.ProductID %>">
-                                    <img src="Images/Thumbs/<%#:Item.ImagePath%>"
-                                        width="100" height="75" style="border: solid" /></a>
+                                    <img src=<%#: String.Format("Images/Thumbs/{0}", Item.ImagePath)%>
+                                        width="100" height="75" style="border: solid" />
+                                </a>
                             </td>
                         </tr>
                         <tr>
