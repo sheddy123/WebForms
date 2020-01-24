@@ -20,9 +20,9 @@ namespace WebForms
             using(ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
             {
                 decimal cartTotal = 0;
-                TextBox t = CartList.FindControl("PurchaseQuantity") as TextBox;
-                String textBoxID = t.ID;
-                cartTotal = usersShoppingCart.GetTotal() * Convert.ToDecimal(textBoxID);
+                //TextBox t = CartList.FindControl("PurchaseQuantity") as TextBox;
+                //String textBoxID = t.ID;
+                cartTotal = usersShoppingCart.GetTotal() /** Convert.ToDecimal(textBoxID)*/;
                 if(cartTotal > 0)
                 {
                     lblTotal.Text = String.Format("{0:c}", cartTotal);
