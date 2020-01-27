@@ -79,7 +79,10 @@ namespace WebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (HttpContext.Current.User.IsInRole("Administrator"))
+            {
+                adminLink.Visible = true;
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)

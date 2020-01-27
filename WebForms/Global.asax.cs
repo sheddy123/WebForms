@@ -7,6 +7,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using WebForms.Logic;
 using WebForms.Models;
 
 namespace WebForms
@@ -19,6 +20,8 @@ namespace WebForms
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer(new ProductDatabaseInitializer());
+            RoleActions roleActions = new RoleActions();
+            roleActions.createAdmin();
         }
     }
 }
